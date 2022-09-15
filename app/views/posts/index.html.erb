@@ -1,0 +1,18 @@
+<h1>Secret Club</h1>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <% if user_signed_in? %>
+      <p> <%= post.user.email %> </p>
+      <p>
+      <%= post.title %>
+    </p>
+    <%else%>
+      <p><strong>Anon:</strong></p>
+    <%end%>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
